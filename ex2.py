@@ -2,11 +2,15 @@
 # Este número deverá variar entre 1 e 5. Se o usuário introduzir um número que não pertença a este intervalo,
 # mostre a frase “número inválido”.
 
-def numero_extenso(num):
+import unittest
+
+class Extenso():
+
+  def numero_extenso(self, num):
 
     if num == 1:
-        print("Numero por extenso: Um")
-        print("Numero digitado:", num)
+        return "Numero por extenso: Um"
+
 
     elif num == 2:
         print("Numero por extenso: Dois")
@@ -27,6 +31,12 @@ def numero_extenso(num):
     else:
         print("Numero inválido")
 
+  def executa(self):
+    num = int(input("Digite um numero:"))
+    self.numero_extenso(num)
 
-num = int(input("Digite um numero:"))
-numero_extenso(num)
+class ExtensoTeste(unittest.TestCase):
+  def teste_numero(self):
+    extenso = Extenso()
+    resultado = extenso.numero_extenso(1)
+    self.assertEqual(resultado,"Numero por extenso: Um")
